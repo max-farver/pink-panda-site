@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Pink Panda`,
     description: `Pink Panda`,
-    // siteUrl: `https://lewis-gatsby-starter-basic.netlify.com`,
+    siteUrl: `https://zealous-yalow-fe832f.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
