@@ -1,16 +1,24 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
-    title: `Lewis Gatsby Starter Basic`,
-    description: `A custom basic Gatsby starter template to start a website.`,
-    siteUrl: `https://lewis-gatsby-starter-basic.netlify.com`,
+    title: `Pink Panda`,
+    description: `Pink Panda`,
+    // siteUrl: `https://lewis-gatsby-starter-basic.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/assets/images`,
+    //   },
+    // },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        pathToConfigModule: `src/styles/typography`,
       },
     },
     `gatsby-transformer-sharp`,

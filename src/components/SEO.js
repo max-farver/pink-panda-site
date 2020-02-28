@@ -2,9 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { gatsby } from '../assets/icons';
-
-export const SEO = ({ title }) => {
+const SEO = ({ title }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -22,7 +20,7 @@ export const SEO = ({ title }) => {
     <Helmet
       htmlAttributes={{ lang: `en` }}
       title={title}
-      titleTemplate={`%s ― ${data.site.siteMetadata.title}`}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       meta={[
         {
           property: `title`,
@@ -53,7 +51,8 @@ export const SEO = ({ title }) => {
           content: `summary`,
         },
       ]}
-      link={[{ rel: 'icon', type: 'image/png', href: `${gatsby}` }]}
     />
   );
 };
+
+export default SEO;
