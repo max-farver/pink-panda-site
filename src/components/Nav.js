@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import logo from '../assets/svgs/logo-pink.svg';
 
 const Nav = () => {
@@ -11,9 +11,21 @@ const Nav = () => {
     ['FAQ', 'faq'],
     ['Clients', 'login'],
   ];
+  const [navIsOpaque, setNavIsOpaque] = useState(true);
+  const { scrollYProgress } = useViewportScroll();
+
+  useEffect(() => scrollYProgress.onChange(v => setNavIsOpaque(v > 0)), [
+    scrollYProgress,
+  ]);
 
   return (
-    <NavWrapper>
+    <NavWrapper
+      animate={{
+        backgroundColor: !navIsOpaque
+          ? 'rgba(33,7,59, .0)'
+          : 'rgba(33,7,59, .9)',
+      }}
+    >
       <Navbar>
         <Logo>
           <h1>
@@ -30,7 +42,7 @@ const Nav = () => {
   );
 };
 
-const NavWrapper = styled.div`
+const NavWrapper = styled(motion.div)`
   width: 100%;
   position: fixed;
   z-index: 10;
@@ -48,7 +60,7 @@ const Navbar = styled.nav`
 
   a {
     text-shadow: none;
-    color: ${props => props.theme.color.gray.five};
+    color: ${props => props.theme.color.gray.six};
     background: none;
 
     &:hover,
@@ -63,6 +75,16 @@ const Navbar = styled.nav`
     max-width: 600px;
     display: flex;
     justify-content: space-between;
+
+    /* :nth-child(4) {
+      position: relative;
+      :before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+      }
+    } */
   }
 `;
 
