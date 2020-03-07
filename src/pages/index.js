@@ -166,7 +166,7 @@ const CoolSVG = styled(motion.div)`
 
 const Main = styled.main`
   position: relative;
-  top: -200px;
+  top: -300px;
   h1 {
     span {
       background-image: linear-gradient(0deg, #ff0b70 0%, #ff0b70 100%);
