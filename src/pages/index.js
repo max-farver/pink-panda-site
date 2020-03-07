@@ -177,15 +177,15 @@ const Main = styled.main`
     }
   }
 
-  > div {
-    background: ${props => props.theme.color.primary.five};
-    height: 5px;
-    width: 110px;
-    position: relative;
-    top: -20px;
-  }
-
   section {
+    > div {
+      background: ${props => props.theme.color.primary.five};
+      height: 5px;
+      width: 110px;
+      position: relative;
+      top: -20px;
+    }
+
     max-width: ${props => props.theme.screen.md};
   }
 `;
