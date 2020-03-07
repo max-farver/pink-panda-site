@@ -1,54 +1,67 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion, useViewportScroll } from 'framer-motion';
+import Image from 'gatsby-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import desktopSVG from '../assets/svgs/hero-desktop-fancy.svg';
 import mobileSVG from '../assets/svgs/hero-mobile-fancy.svg';
 
-const Home = () => (
-  <Layout>
-    <SEO title={`Home`} />
-    <Hero>
-      <BG></BG>
-      <HeroText>
-        <div>
-          <h1>
-            Web <span>Design</span>, <br />
-            <span>Development</span> & <br />
-            <span>SEO</span> Made Easy
-          </h1>
-        </div>
-      </HeroText>
-      <CoolSVG></CoolSVG>
-    </Hero>
-    <main>
-      <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam fuga
-        aperiam consequuntur quaerat aut porro error esse minus cum, quas animi
-        ratione iste consequatur aspernatur est sequi velit non ipsa deleniti!
-        Voluptatem eaque dolorum placeat enim, veritatis cupiditate molestiae
-        aliquam. Adipisci vel pariatur magni reprehenderit dolore illum numquam
-        aliquam, quidem minima saepe. Eveniet voluptas inventore est ipsa
-        aliquam dignissimos quas libero tenetur enim. Eius hic nesciunt nulla
-        adipisci sint cupiditate aliquam. Recusandae, nemo totam. Reiciendis
-        iure, officiis eveniet accusamus tempora qui illum voluptatibus minima
-        quasi! Saepe suscipit ad, autem, quo ipsa corrupti ut, non consectetur
-        ab vero facilis sequi tempora mollitia nam ex perferendis consequuntur
-        incidunt unde? Minus sapiente soluta odio aliquam expedita nobis eius
-        sed eveniet distinctio culpa accusamus, in nisi necessitatibus itaque
-        voluptatibus veritatis voluptatem. A ab saepe enim quis esse vero quod
-        odio iure fugit temporibus, sint magni debitis et neque nostrum illum
-        minima possimus dolores atque mollitia! Ipsam tenetur sint earum
-        consequuntur vitae enim ipsum quos molestiae sit assumenda itaque dicta
-        qui expedita ut ab amet illum aliquam, rerum harum pariatur et dolorem.
-        Eligendi iure earum praesentium provident voluptatibus ipsa repellendus
-        tempore sequi, dolor pariatur, iste optio ratione aperiam laborum, ex
-        ducimus architecto quo ipsam? Sit.
-      </section>
-    </main>
-  </Layout>
-);
+const Home = () => {
+  return (
+    <Layout>
+      <SEO title={`Home`} />
+      <Hero>
+        <BG></BG>
+        <HeroText>
+          <div>
+            <h1>
+              Web <span>Design</span>, <br />
+              <span>Development</span> & <br />
+              <span>SEO</span> Made Easy
+            </h1>
+          </div>
+        </HeroText>
+        <CoolSVG
+          initial={{
+            opacity: 0,
+            x: 10,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
+        ></CoolSVG>
+      </Hero>
+      <Main>
+        <section>
+          <h2>Insert Fancy Slogan Here</h2>
+          <div></div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+            ipsum aspernatur rem repudiandae, odit inventore, voluptatibus
+            culpa, accusantium adipisci quo ea. Vel iste quis, exercitationem
+            officiis reprehenderit numquam tempora officia ipsam quaerat ad ex
+            nesciunt soluta vero voluptatem sint dolor non. Tempora molestias
+            distinctio at alias, delectus neque assumenda qui minus quis numquam
+            repudiandae maiores corrupti accusamus velit facere. Et quidem
+            sapiente cum, architecto quod labore omnis id iure sequi earum eum
+            ad. Vero harum laboriosam eius fugiat unde dolores ad praesentium
+            necessitatibus saepe. Optio aliquam voluptate eveniet iure earum
+          </p>
+        </section>
+      </Main>
+    </Layout>
+  );
+};
 
 const Hero = styled.header`
   max-width: 100%;
@@ -126,11 +139,11 @@ const BG = styled.div`
   }
 `;
 
-const CoolSVG = styled.div`
+const CoolSVG = styled(motion.div)`
   overflow: hidden;
   position: relative;
-  z-index: -1;
   background: url(${desktopSVG}) no-repeat;
+  z-index: -1;
   top: 50px;
   left: 40%;
   height: 1080px;
@@ -143,10 +156,37 @@ const CoolSVG = styled.div`
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     background: url(${mobileSVG}) no-repeat;
+
     height: 758;
     width: 640;
     left: -84px;
     top: 300px;
+  }
+`;
+
+const Main = styled.main`
+  position: relative;
+  top: -200px;
+  h1 {
+    span {
+      background-image: linear-gradient(0deg, #ff0b70 0%, #ff0b70 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.2em;
+      background-position: 0 85%;
+      transition: background-size 0.25s ease-in;
+    }
+  }
+
+  > div {
+    background: ${props => props.theme.color.primary.five};
+    height: 5px;
+    width: 110px;
+    position: relative;
+    top: -20px;
+  }
+
+  section {
+    max-width: ${props => props.theme.screen.md};
   }
 `;
 

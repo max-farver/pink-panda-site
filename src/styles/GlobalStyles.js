@@ -3,13 +3,15 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize}
 
-  body { 
-    width: auto;
-    height: auto;
-    }
-
   a {
     text-shadow: none;
+    text-decoration: none;
+  }
+
+  main {
+    max-width: ${props => props.theme.screen.xl};
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 `;
 

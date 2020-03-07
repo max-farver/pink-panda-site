@@ -14,14 +14,14 @@ const Nav = () => {
   const [navIsOpaque, setNavIsOpaque] = useState(true);
   const { scrollYProgress } = useViewportScroll();
 
-  useEffect(() => scrollYProgress.onChange(v => setNavIsOpaque(v > 0)), [
+  useEffect(() => scrollYProgress.onChange(v => setNavIsOpaque(v === 0)), [
     scrollYProgress,
   ]);
 
   return (
     <NavWrapper
       animate={{
-        backgroundColor: !navIsOpaque
+        backgroundColor: navIsOpaque
           ? 'rgba(33,7,59, .0)'
           : 'rgba(33,7,59, .9)',
       }}
@@ -29,7 +29,8 @@ const Nav = () => {
       <Navbar>
         <Logo>
           <h1>
-            Pink <div></div>
+            Pink
+            <div></div>
           </h1>
         </Logo>
         <NavItems>
