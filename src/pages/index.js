@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion, useViewportScroll } from 'framer-motion';
 import Image from 'gatsby-image';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 import Layout from '../components/Layout';
@@ -23,41 +23,39 @@ const Home = () => {
               <span>Development</span> & <br />
               <span>SEO</span> Made Easy
             </h1>
+            <Link to="/Contact">Get a Quote</Link>
           </div>
         </HeroText>
-        <CoolSVG
-          initial={{
-            opacity: 0,
-            x: 10,
-            y: 10,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-        ></CoolSVG>
+        <CoolSVG></CoolSVG>
       </Hero>
       <Main>
-        <section>
-          <h2>Insert Fancy Slogan Here</h2>
+        <IntroBlurb>
+          <h2>
+            It’s Time To Show <span>YOU</span> Off
+          </h2>
           <div></div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-            ipsum aspernatur rem repudiandae, odit inventore, voluptatibus
-            culpa, accusantium adipisci quo ea. Vel iste quis, exercitationem
-            officiis reprehenderit numquam tempora officia ipsam quaerat ad ex
-            nesciunt soluta vero voluptatem sint dolor non. Tempora molestias
-            distinctio at alias, delectus neque assumenda qui minus quis numquam
-            repudiandae maiores corrupti accusamus velit facere. Et quidem
-            sapiente cum, architecto quod labore omnis id iure sequi earum eum
-            ad. Vero harum laboriosam eius fugiat unde dolores ad praesentium
-            necessitatibus saepe. Optio aliquam voluptate eveniet iure earum
+            You’re passionate about your business. It’s time to show the world
+            why. At Pink Panda, our team has a single goal - to help you build a
+            brand that stands out. We take what makes you special and help you
+            tell the world, turning strangers into customers, and customers into
+            loyal fans.
           </p>
-        </section>
+          <h4>
+            We’re not all bark, here’s some of our <Link to="/">bite.</Link>
+          </h4>
+        </IntroBlurb>
+        <Work>
+          <h2>Check Out Our Work</h2>
+          <div>
+            {/*
+            rotate this div
+            then reverse it in the articles
+            */}
+            <article></article>
+            <article></article>
+          </div>
+        </Work>
       </Main>
     </Layout>
   );
@@ -85,7 +83,11 @@ const HeroText = styled.div`
       color: #fff;
       z-index: 5;
       span {
-        background-image: linear-gradient(0deg, #ff0b70 0%, #ff0b70 100%);
+        background-image: linear-gradient(
+          0deg,
+          ${props => props.theme.color.primary.five} 0%,
+          ${props => props.theme.color.primary.five} 100%
+        );
         background-repeat: no-repeat;
         background-size: 100% 0.2em;
         background-position: 0 85%;
@@ -96,6 +98,25 @@ const HeroText = styled.div`
         font-size: 36px;
       }
     }
+
+    a {
+      font-size: 1.5em;
+      font-kerning: 2;
+      border-radius: 5px;
+      border: 3px solid ${props => props.theme.color.primary.five};
+      padding: 0.5em 1em;
+      color: #ffffff;
+      text-align: center;
+      width: 250px;
+      transition: background-color 0.3s ease-in-out;
+
+      :hover,
+      :focus,
+      :active {
+        background-color: ${props => props.theme.color.secondary.one};
+      }
+    }
+
     @media (max-width: ${props => props.theme.screen.sm}) {
       height: 450px;
     }
@@ -167,27 +188,40 @@ const CoolSVG = styled(motion.div)`
 const Main = styled.main`
   position: relative;
   top: -300px;
-  h1 {
-    span {
-      background-image: linear-gradient(0deg, #ff0b70 0%, #ff0b70 100%);
-      background-repeat: no-repeat;
-      background-size: 100% 0.2em;
-      background-position: 0 85%;
-      transition: background-size 0.25s ease-in;
-    }
-  }
-
   section {
-    > div {
-      background: ${props => props.theme.color.primary.five};
-      height: 5px;
-      width: 110px;
-      position: relative;
-      top: -20px;
+    a {
+      background-image: linear-gradient(
+        0deg,
+        ${props => props.theme.color.primary.five} 0%,
+        ${props => props.theme.color.primary.five} 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.1em;
+      background-position: 0 85%;
+      transition: background-size 0.25s ease-in-out;
     }
-
-    max-width: ${props => props.theme.screen.md};
+    max-width: ${props => props.theme.screen.sm};
   }
 `;
+
+const IntroBlurb = styled.section`
+  span {
+    color: ${props => props.theme.color.primary.three};
+  }
+
+  h4 {
+    a {
+      background-position: 0 90%;
+      color: black;
+      :hover,
+      :focus,
+      :active {
+        background-size: 100% 100%;
+      }
+    }
+  }
+`;
+
+const Work = styled.section``;
 
 export default Home;

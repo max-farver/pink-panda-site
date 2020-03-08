@@ -3,9 +3,15 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize}
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   a {
     text-shadow: none;
     text-decoration: none;
+    cursor: pointer;
+    background-image: none;
   }
 
   main {

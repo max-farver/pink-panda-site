@@ -11,13 +11,17 @@ const theme = {
       eight: 'hsl(0, 0%, 80%)',
       nine: 'hsl(0, 0%, 90%)',
     },
-    primary: { five: 'hsl(335, 100%, 52%)' },
+    primary: {
+      three: 'hsl(335, 100%, 42%)',
+      five: 'hsl(335, 100%, 52%)',
+      seven: 'hsl(335, 100%, 65%)',
+    },
     secondary: {
-      one: 'hsl(300, 70%, 35%)',
-      three: 'hsl(292, 70%, 25%)',
+      one: 'hsl(300, 79%, 13%)',
+      three: 'hsl(292, 80%, 17%)',
       five: 'hsl(285, 70%, 20%)',
-      seven: 'hsl(278, 80%, 17%)',
-      nine: 'hsl(270, 79%, 13%)',
+      seven: 'hsl(278, 70%, 25%)',
+      nine: 'hsl(270, 70%, 35%)',
     },
   },
   screen: {
