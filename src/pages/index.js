@@ -23,27 +23,29 @@ const Home = () => {
               <span>Development</span> & <br />
               <span>SEO</span> Made Easy
             </h1>
-            <Link to="/Contact">Get a Quote</Link>
+            <Link to="/Contact">Get in Touch</Link>
           </div>
         </HeroText>
         <CoolSVG></CoolSVG>
       </Hero>
       <Main>
         <IntroBlurb>
-          <h2>
-            It’s Time To Show <span>YOU</span> Off
-          </h2>
-          <div></div>
-          <p>
-            You’re passionate about your business. It’s time to show the world
-            why. At Pink Panda, our team has a single goal - to help you build a
-            brand that stands out. We take what makes you special and help you
-            tell the world, turning strangers into customers, and customers into
-            loyal fans.
-          </p>
-          <h4>
-            We’re not all bark, here’s some of our <Link to="/">bite.</Link>
-          </h4>
+          <div>
+            <h2>
+              It’s Time To Show <span>YOU</span> Off
+            </h2>
+            <div></div>
+            <p>
+              You’re passionate about your business. It’s time to show the world
+              why. At Pink Panda, our team has a single goal - to help you build
+              a brand that stands out. We take what makes you special and help
+              you tell the world, turning strangers into customers, and
+              customers into loyal fans.
+            </p>
+            <h3>
+              We’re not all bark, here’s some of our <Link to="/">bite.</Link>
+            </h3>
+          </div>
         </IntroBlurb>
         <Work>
           <h2>Check Out Our Work</h2>
@@ -52,8 +54,18 @@ const Home = () => {
             rotate this div
             then reverse it in the articles
             */}
-            <article></article>
-            <article></article>
+            <div>
+              <article>
+                <div>
+                  <h3>Company</h3>
+                </div>
+              </article>
+              <article>
+                <div>
+                  <h3>Company</h3>
+                </div>
+              </article>
+            </div>
           </div>
         </Work>
       </Main>
@@ -114,6 +126,10 @@ const HeroText = styled.div`
       :focus,
       :active {
         background-color: ${props => props.theme.color.secondary.one};
+      }
+
+      @media (max-width: ${props => props.theme.screen.sm}) {
+        background-color: hsla(300, 79%, 13%, 0.7);
       }
     }
 
@@ -186,6 +202,7 @@ const CoolSVG = styled(motion.div)`
 `;
 
 const Main = styled.main`
+  max-width: 100%;
   position: relative;
   top: -300px;
   section {
@@ -197,31 +214,83 @@ const Main = styled.main`
       );
       background-repeat: no-repeat;
       background-size: 100% 0.1em;
-      background-position: 0 85%;
+      background-position: 0 90%;
       transition: background-size 0.25s ease-in-out;
     }
-    max-width: ${props => props.theme.screen.sm};
   }
 `;
 
 const IntroBlurb = styled.section`
+  max-width: ${props => props.theme.screen.xl};
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  > div {
+    max-width: ${props => props.theme.screen.sm};
+  }
+
   span {
     color: ${props => props.theme.color.primary.three};
   }
 
-  h4 {
-    a {
-      background-position: 0 90%;
-      color: black;
-      :hover,
-      :focus,
-      :active {
-        background-size: 100% 100%;
-      }
+  a {
+    background-position: 0 90%;
+    color: black;
+    :hover,
+    :focus,
+    :active {
+      background-size: 100% 100%;
     }
   }
 `;
 
-const Work = styled.section``;
+const Work = styled.section`
+  padding: 0;
+  h2 {
+    max-width: ${props => props.theme.screen.xl};
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  article {
+    position: relative;
+    height: 300px;
+
+    h3 {
+      margin: 0;
+      transform: skewY(-8deg);
+    }
+
+    > div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  > div {
+    overflow: hidden;
+    height: calc(600px - (100vw * 0.14054083));
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      transform: skewY(8deg);
+      transform-origin: top right;
+
+      overflow: hidden;
+      position: relative;
+      > :nth-child(1) {
+        background-color: red;
+      }
+      > :nth-child(2) {
+        background-color: blue;
+      }
+    }
+  }
+`;
 
 export default Home;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import theme from '../styles/theme';
 
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
           onClick={() => setNavIsOpaque(!navIsOpaque)}
         ></button> */}
         {children}
+        <Footer />
       </>
     </ThemeProvider>
   );

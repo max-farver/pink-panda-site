@@ -5,6 +5,12 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
+    position: relative;
+  }
+
+  body {
+    position: relative;
+    min-height: 100%;
   }
 
   a {
@@ -17,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
   main {
     max-width: ${props => props.theme.screen.xl};
     margin: 0 auto;
-    padding: 0 1rem;
   }
 `;
 

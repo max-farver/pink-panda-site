@@ -6,9 +6,9 @@ import logo from '../assets/svgs/logo-pink.svg';
 
 const Nav = () => {
   const navItems = [
-    ['About', 'about'],
     ['Services', 'services'],
     ['FAQ', 'faq'],
+    ['About', 'about'],
     ['Clients', 'login'],
   ];
   const [navIsOpaque, setNavIsOpaque] = useState(true);
@@ -64,7 +64,8 @@ const Navbar = styled.nav`
     color: ${props => props.theme.color.gray.six};
     background: none;
 
-    &:hover,
+    :focus,
+    :hover,
     :active {
       color: ${props => props.theme.color.gray.nine};
       text-decoration: underline;
@@ -76,16 +77,6 @@ const Navbar = styled.nav`
     max-width: 600px;
     display: flex;
     justify-content: space-between;
-
-    /* :nth-child(4) {
-      position: relative;
-      :before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 1px solid black;
-      }
-    } */
   }
 `;
 
@@ -101,12 +92,21 @@ const Logo = styled.div`
       background-size: contain;
       height: 2em;
       width: 2em;
-      /* margin-bottom: -0.5em; */
     }
   }
 `;
 
 const NavItems = styled.div`
+  /* :nth-child(4) {
+      position: relative;
+      :before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+      }
+    } */
+
   @media (max-width: ${props => props.theme.screen.sm}) {
     visibility: hidden;
   }
