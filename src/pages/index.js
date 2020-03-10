@@ -50,17 +50,15 @@ const Home = () => {
         <Work>
           <h2>Check Out Our Work</h2>
           <div>
-            {/*
-            rotate this div
-            then reverse it in the articles
-            */}
             <div>
               <article>
+                <Link to="/"></Link>
                 <div>
                   <h3>Company</h3>
                 </div>
               </article>
               <article>
+                <Link to="/"></Link>
                 <div>
                   <h3>Company</h3>
                 </div>
@@ -246,6 +244,8 @@ const IntroBlurb = styled.section`
 
 const Work = styled.section`
   padding: 0;
+  max-width: 100vw;
+  overflow: hidden;
   h2 {
     max-width: ${props => props.theme.screen.xl};
     margin-left: auto;
@@ -257,37 +257,167 @@ const Work = styled.section`
     position: relative;
     height: 300px;
 
+    /* Have to fix skew each for individual item in inner div */
     h3 {
       margin: 0;
-      transform: skewY(-8deg);
+      color: #fff;
+      z-index: 5;
     }
 
+    /* Div inside the card, don't change */
     > div {
       position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        opacity: 0.6;
+        background: ${props => props.theme.color.secondary.three};
+      }
     }
   }
 
   > div {
+    /* Container div */
     overflow: hidden;
-    height: calc(600px - (100vw * 0.14054083));
+    height: calc(600px - (100vw * 0.26794919243));
+
     > div {
+      /* Background stuff for each card */
       display: flex;
       flex-direction: column;
 
-      transform: skewY(8deg);
+      /* Change for desktop to skewX   */
+      transform: skewY(15deg);
       transform-origin: top right;
 
       overflow: hidden;
       position: relative;
+
+      /* Set backgrounds for each card */
       > :nth-child(1) {
-        background-color: red;
+        overflow: hidden;
+
+        > div {
+          transform: skewY(-15deg);
+          transform-origin: top right;
+          background: url(https://source.unsplash.com/1600x900/?website);
+          background-size: cover;
+        }
       }
       > :nth-child(2) {
-        background-color: blue;
+        overflow: hidden;
+        > div {
+          transform: skewY(-15deg);
+          transform-origin: bottom left;
+          background: url(https://source.unsplash.com/1600x900/?computer);
+          background-size: cover;
+        }
+      }
+
+      a {
+        position: absolute;
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        z-index: 10;
+      }
+    }
+  }
+
+  @media (min-width: ${props => props.theme.screen.sm}) {
+    article {
+      position: relative;
+      height: 400px;
+      width: 100%;
+
+      h3 {
+        margin: 0;
+        /* resetting from mobile */
+        transform: skewX(0deg);
+        visibility: hidden;
+      }
+
+      /* Div inside the card, don't change */
+      > div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: block;
+          opacity: 0;
+          transition: opacity 0.5s;
+          background: ${props => props.theme.color.secondary.three};
+        }
+      }
+
+      :focus,
+      :hover,
+      :active {
+        > div::after {
+          opacity: 0.7;
+        }
+        h3 {
+          visibility: visible;
+        }
+      }
+    }
+
+    > div {
+      /* Container div */
+      overflow: hidden;
+      height: 400px;
+      min-width: calc(100vw + (400px * 0.26794919243));
+
+      > div {
+        /* Background stuff for each card */
+        flex-direction: row;
+
+        /* Change for desktop to skewX   */
+        transform: skewX(15deg);
+        transform-origin: bottom left;
+
+        overflow: hidden;
+        position: relative;
+
+        /* Set backgrounds for each card */
+        > :nth-child(1) {
+          > div {
+            transform: skewY(0deg);
+            transform: skewX(-15deg);
+            transform-origin: bottom left;
+          }
+        }
+        > :nth-child(2) {
+          > div {
+            transform: skewY(0deg);
+            transform: skewX(-15deg);
+            transform-origin: top right;
+          }
+        }
       }
     }
   }
