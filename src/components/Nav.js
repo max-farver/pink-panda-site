@@ -62,13 +62,21 @@ const Navbar = styled.nav`
   a {
     text-shadow: none;
     color: ${props => props.theme.color.gray.six};
-    background: none;
+    background-image: linear-gradient(0deg, #00000000 0%, #00000000 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.1em;
+    background-position: 0 100%;
 
-    :focus,
     :hover,
+    :focus,
     :active {
+      background-image: linear-gradient(
+        0deg,
+        ${props => props.theme.color.primary.five} 0%,
+        ${props => props.theme.color.primary.five} 100%
+      );
+
       color: ${props => props.theme.color.gray.nine};
-      text-decoration: underline;
     }
   }
 

@@ -21,6 +21,12 @@ module.exports = {
         pathToConfigModule: `src/styles/typography`,
       },
     },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `5f6477449d1880088dfdae98db6fff`,
+      },
+    },
     'gatsby-plugin-svgr',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

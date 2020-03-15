@@ -42,13 +42,12 @@ const Home = () => {
               you tell the world, turning strangers into customers, and
               customers into loyal fans.
             </p>
-            <h3>
-              We’re not all bark, here’s some of our <Link to="/">bite.</Link>
-            </h3>
           </div>
         </IntroBlurb>
         <Work>
-          <h2>Check Out Our Work</h2>
+          <h2>
+            We’re not all bark, here’s some of our <Link to="/">bite.</Link>
+          </h2>
           <div>
             <div>
               <article>
@@ -66,6 +65,10 @@ const Home = () => {
             </div>
           </div>
         </Work>
+        <Services>
+          <h2>What makes us better</h2>
+          <p></p>
+        </Services>
       </Main>
     </Layout>
   );
@@ -230,16 +233,6 @@ const IntroBlurb = styled.section`
   span {
     color: ${props => props.theme.color.primary.three};
   }
-
-  a {
-    background-position: 0 90%;
-    color: black;
-    :hover,
-    :focus,
-    :active {
-      background-size: 100% 100%;
-    }
-  }
 `;
 
 const Work = styled.section`
@@ -250,7 +243,17 @@ const Work = styled.section`
     max-width: ${props => props.theme.screen.xl};
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem 1rem 0 1rem;
+    padding: 0 1rem 0 1rem;
+
+    a {
+      background-position: 0 90%;
+      color: black;
+      :hover,
+      :focus,
+      :active {
+        background-size: 100% 100%;
+      }
+    }
   }
 
   article {
@@ -346,6 +349,7 @@ const Work = styled.section`
 
       h3 {
         margin: 0;
+        font-size: 2.5em;
         /* resetting from mobile */
         transform: skewX(0deg);
         visibility: hidden;
@@ -356,7 +360,6 @@ const Work = styled.section`
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         height: 100%;
 
@@ -421,6 +424,12 @@ const Work = styled.section`
       }
     }
   }
+`;
+
+const Services = styled.section`
+  max-width: ${props => props.theme.screen.xl};
+  margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 export default Home;
