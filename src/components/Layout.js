@@ -17,10 +17,6 @@ const Layout = ({ children }) => {
       <>
         <GlobalStyles />
         <Nav />
-        {/* <button
-          style={{ height: '100vh' }}
-          onClick={() => setNavIsOpaque(!navIsOpaque)}
-        ></button> */}
         {children}
         <Footer />
       </>

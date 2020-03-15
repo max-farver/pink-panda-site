@@ -9,7 +9,7 @@ const Nav = () => {
     ['Services', 'services'],
     ['FAQ', 'faq'],
     ['About', 'about'],
-    ['Clients', 'login'],
+    ['Contact Us', 'contact'],
   ];
   const [navIsOpaque, setNavIsOpaque] = useState(true);
   const { scrollYProgress } = useViewportScroll();
@@ -35,7 +35,7 @@ const Nav = () => {
         </Logo>
         <NavItems>
           {navItems.map(page => (
-            <Link href={`/${page[1]}`}>{page[0]}</Link>
+            <Link to={`/${page[1]}`}>{page[0]}</Link>
           ))}
         </NavItems>
       </Navbar>
@@ -46,6 +46,7 @@ const Nav = () => {
 const NavWrapper = styled(motion.div)`
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 10;
 `;
 

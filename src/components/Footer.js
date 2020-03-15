@@ -100,6 +100,7 @@ const ContactForm = styled.div`
       transition: border 200ms ease-in;
 
       :focus,
+      :hover,
       :active {
         border-bottom: 2px solid ${props => props.theme.color.primary.seven};
         outline: none;
@@ -117,7 +118,6 @@ const ContactForm = styled.div`
 `;
 
 const CopyWrite = styled.div`
-  margin: 1.5rem 0;
   grid-area: copywrite;
   color: #fff;
 `;
