@@ -23,8 +23,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   main {
-    max-width: ${props => props.theme.screen.xl};
     flex: 1 0 auto;
+    margin: 6rem auto 0 auto;
+    max-width: ${props => props.theme.screen.xl};
+    padding: 0 1rem;
+
+    h1 {
+      font-size: 3rem;
+    }
   }
 `;
 

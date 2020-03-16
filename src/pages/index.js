@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion, useViewportScroll } from 'framer-motion';
 import Image from 'gatsby-image';
 import { graphql, useStaticQuery, Link } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -203,9 +202,10 @@ const CoolSVG = styled(motion.div)`
 `;
 
 const Main = styled.main`
+  max-width: ${props => props.theme.screen.xl};
+  padding: 0;
   max-width: 100%;
-  position: relative;
-  top: -300px;
+  margin-top: -300px;
   section {
     a {
       background-image: linear-gradient(

@@ -116,15 +116,19 @@ const Logo = styled.div`
 `;
 
 const NavItems = styled.div`
-  /* :nth-child(4) {
-      position: relative;
-      :before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 1px solid black;
-      }
-    } */
+  > a:nth-child(4) {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: calc(100% + 1rem);
+      height: calc(100% + 1rem);
+      border: 2px solid ${props => props.theme.color.primary.five};
+      border-radius: 5px;
+      top: -0.5rem;
+      left: -0.5rem;
+    }
+  }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
     visibility: hidden;

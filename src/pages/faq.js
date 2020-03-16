@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const FAQ = () => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   return (
     <Layout>
+      <SEO title={`FAQ`} />
       <Main>
         <h1>F.A.Q.</h1>
         <FaqItem>
@@ -105,10 +107,7 @@ const FAQ = () => {
 const Main = styled.main`
   max-width: ${props => props.theme.screen.xl};
   padding: 0 1rem;
-  margin: 6rem auto 0 auto;
-
   h1 {
-    font-size: 3rem;
     display: inline;
     background-image: linear-gradient(
       0deg,
