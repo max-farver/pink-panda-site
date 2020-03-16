@@ -12,17 +12,12 @@ const FAQ = () => {
       <Main>
         <h1>F.A.Q.</h1>
         <FaqItem>
-          <button onClick={() => setSelectedItem(0)}></button>
           <h3>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
             repudiandae perferendis repellendus animi repellat? Eveniet,
             similique voluptatem? Dignissimos, earum est?
           </h3>
-          <motion.p
-            animate={{
-              scaleY: selectedItem == 0 ? 1 : 0,
-            }}
-          >
+          <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
             facere temporibus itaque at possimus impedit adipisci. Tenetur
             ratione omnis, excepturi, voluptates vero voluptatem enim
@@ -30,25 +25,20 @@ const FAQ = () => {
             Repudiandae, maiores assumenda sequi vitae recusandae autem
             perferendis tempora nihil quae natus fuga deserunt! Enim earum vel
             quisquam nulla.
-          </motion.p>
+          </p>
         </FaqItem>
         <FaqItem>
-          <button onClick={() => setSelectedItem(1)}></button>
           <h3>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
             voluptate!
           </h3>
-          <motion.p
-            animate={{
-              scaleY: selectedItem == 1 ? 1 : 0,
-            }}
-          >
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Exercitationem architecto, molestias minus sequi itaque at, quas
             nesciunt similique repellat aliquid consequuntur dolorem, atque
             alias corporis? Distinctio id debitis architecto eligendi velit
             facere qui labore voluptate!
-          </motion.p>
+          </p>
         </FaqItem>
         <FaqItem>
           <h3>
@@ -118,6 +108,7 @@ const Main = styled.main`
   margin: 6rem auto 0 auto;
 
   h1 {
+    font-size: 3rem;
     display: inline;
     background-image: linear-gradient(
       0deg,
@@ -131,18 +122,16 @@ const Main = styled.main`
 `;
 
 const FaqItem = styled.article`
-  background: #ddd;
   border-radius: 5px;
-  padding: 1rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 4rem 0;
   position: relative;
 
   h3 {
-    margin: 0;
   }
 
   p {
-    margin: 0;
+    position: relative;
+    transform-origin: top;
   }
 
   button {

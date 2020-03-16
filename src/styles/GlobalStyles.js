@@ -6,11 +6,13 @@ const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     position: relative;
+    height: 100%;
   }
 
   body {
     position: relative;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   a {
@@ -22,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
   main {
     max-width: ${props => props.theme.screen.xl};
-    margin: 0 auto;
+    flex: 1 0 auto;
   }
 `;
 

@@ -34,7 +34,7 @@ const Footer = () => {
 };
 
 const FooterWrapper = styled.footer`
-  position: relative;
+  flex-shrink: 0;
   background-color: ${props => props.theme.color.gray.one};
 
   > div {

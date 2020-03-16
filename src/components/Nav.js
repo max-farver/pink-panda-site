@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import logo from '../assets/svgs/logo-pink.svg';
 
-const Nav = () => {
+const Nav = ({ location }) => {
   const navItems = [
     ['Services', 'services'],
     ['FAQ', 'faq'],
@@ -28,10 +28,12 @@ const Nav = () => {
     >
       <Navbar>
         <Logo>
-          <h1>
-            Pink
-            <div></div>
-          </h1>
+          <Link to="/">
+            <h1>
+              Pink
+              <div></div>
+            </h1>
+          </Link>
         </Logo>
         <NavItems>
           {navItems.map(page => (
@@ -90,6 +92,14 @@ const Navbar = styled.nav`
 `;
 
 const Logo = styled.div`
+  a {
+    :hover,
+    :focus,
+    :active {
+      background-image: none;
+    }
+  }
+
   h1 {
     color: ${props => props.theme.color.primary.five};
     display: flex;

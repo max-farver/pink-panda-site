@@ -8,21 +8,31 @@ import Footer from '../components/Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import theme from '../styles/theme';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const { scrollYProgress } = useViewportScroll();
   const [navIsOpaque, setNavIsOpaque] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
-      <>
+      <Site>
         <GlobalStyles />
         <Nav />
-        {children}
+        <Content>{children}</Content>
         <Footer />
-      </>
+      </Site>
     </ThemeProvider>
   );
 };
+
+const Site = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+`;
+
+const Content = styled.div`
+  flex-grow: 1;
+`;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
