@@ -55,50 +55,6 @@ const FAQ = () => {
             omnis voluptatem cum commodi eos earum.
           </p>
         </FaqItem>
-        <FaqItem>
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            porro repudiandae quo.
-          </h3>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
-            fugit veritatis. Maiores quas in aut odio sapiente culpa? Eos
-            incidunt libero sequi quis autem quam minus, recusandae soluta
-            blanditiis inventore.
-          </p>
-        </FaqItem>
-        <FaqItem>
-          <h3>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Exercitationem commodi suscipit voluptas quis est dolore temporibus
-            dolorum.
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nam
-            facilis expedita tempora enim excepturi illum sint eligendi
-            laudantium hic, consectetur officia, sed obcaecati doloribus velit
-            fugit nostrum blanditiis dolorem vel nemo eum porro iusto deleniti?
-            Cum nisi atque culpa magnam quia possimus laborum doloremque, id,
-            quaerat officiis maxime, voluptas tempora soluta quae praesentium
-            aut. Iusto expedita repudiandae sed laudantium.
-          </p>
-        </FaqItem>
-        <FaqItem>
-          <h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
-            voluptatum sit inventore. Enim.
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
-            magnam quae architecto quod dolorem natus debitis unde temporibus
-            consequatur nisi velit deserunt cupiditate quibusdam minima ducimus
-            tempora nobis aut? Ullam ipsa tempora non praesentium hic voluptate,
-            nostrum exercitationem quae, temporibus, nemo suscipit. Ipsa quo
-            inventore sed quas accusamus non a, placeat modi! Reprehenderit non
-            ratione, soluta praesentium quisquam consequuntur libero. Recusandae
-            delectus quis nobis numquam?
-          </p>
-        </FaqItem>
       </Main>
     </Layout>
   );

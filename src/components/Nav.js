@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import logo from '../assets/svgs/logo-pink.svg';
+import menuIcon from '../assets/svgs/icon-menu.svg';
 
 const Nav = ({ location }) => {
   const navItems = [
@@ -18,12 +19,29 @@ const Nav = ({ location }) => {
     scrollYProgress,
   ]);
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = navItems.map(page => (
+    <Link to={`/${page[1]}`}>{page[0]}</Link>
+  ));
+
+  const Path = props => (
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke="hsl(0, 0%, 18%)"
+      strokeLinecap="round"
+      {...props}
+    />
+  );
+
   return (
     <NavWrapper
       animate={{
-        backgroundColor: navIsOpaque
-          ? 'rgba(33,7,59, .0)'
-          : 'rgba(33,7,59, .9)',
+        backgroundColor:
+          !navIsOpaque || isMobileMenuOpen
+            ? 'rgba(33,7,59, .95)'
+            : 'rgba(33,7,59, .0)',
       }}
     >
       <Navbar>
@@ -35,11 +53,21 @@ const Nav = ({ location }) => {
             </h1>
           </Link>
         </Logo>
-        <NavItems>
-          {navItems.map(page => (
-            <Link to={`/${page[1]}`}>{page[0]}</Link>
-          ))}
-        </NavItems>
+        <DesktopNavItems>{navLinks}</DesktopNavItems>
+        <MobileMenuButton onClick={() => setIsMobileMenuOpen(prev => !prev)} >
+          
+        </MobileMenuButton>
+        <MobileNavItems
+          animate={{
+            x: isMobileMenuOpen ? -200 : 0,
+            backgroundColor:
+              !navIsOpaque || isMobileMenuOpen
+                ? 'rgba(33,7,59, .95)'
+                : 'rgba(33,7,59, .0)',
+          }}
+        >
+          {navLinks}
+        </MobileNavItems>
       </Navbar>
     </NavWrapper>
   );
@@ -83,15 +111,15 @@ const Navbar = styled.nav`
     }
   }
 
-  > div {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    justify-content: space-between;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    align-items: center;
   }
 `;
 
 const Logo = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 600px;
   a {
     :hover,
     :focus,
@@ -115,7 +143,12 @@ const Logo = styled.div`
   }
 `;
 
-const NavItems = styled.div`
+const DesktopNavItems = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  justify-content: space-between;
+
   > a:nth-child(4) {
     position: relative;
     &::before {
@@ -131,7 +164,51 @@ const NavItems = styled.div`
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
-    visibility: hidden;
+    display: none;
+  }
+`;
+
+const MobileMenuButton = styled(motion.button)`
+  display: none;
+  height: 2rem;
+  width: 2rem;
+  background: url(${menuIcon});
+  border: none;
+
+  outline: none;
+
+  z-index: 200;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    display: block;
+  }
+`;
+
+const MobileNavItems = styled(motion.div)`
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -300px;
+  height: 100vh;
+  width: 300px;
+  margin-top: 4rem;
+  background: rgba(33, 7, 59, 0.9);
+
+  a {
+    display: inline;
+    margin: 1rem;
+    color: ${props => props.theme.color.gray.nine};
+    background: none;
+
+    :hover,
+    :focus,
+    :active {
+      background: none;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 

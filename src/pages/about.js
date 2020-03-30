@@ -21,11 +21,9 @@ const About = () => {
           </p>
           <img src="https://source.unsplash.com/1600x900/?people" alt="" />
         </TeamAsWhole>
-
         <Individuals>
-          <h2>Meet the Team</h2>
           <article>
-            <img src="https://source.unsplash.com/800x800/?person" alt="" />
+            <img src="https://source.unsplash.com/400x401/?person" alt="" />
             <h3>Grant Keast</h3>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
@@ -36,7 +34,7 @@ const About = () => {
           </article>
           <article>
             <div>
-              <img src="https://source.unsplash.com/799x799/?person" alt="" />
+              <img src="https://source.unsplash.com/400x400/?person" alt="" />
             </div>
             <h3>Max Farver</h3>
             <p>
@@ -64,6 +62,16 @@ const TeamAsWhole = styled.section``;
 const Individuals = styled.section`
   h3 {
     margin-top: 0;
+  }
+
+  @media (min-width: ${props => props.theme.screen.sm}) {
+    display: flex;
+    justify-content: space-around;
+
+    > article {
+      max-width: 400px;
+      text-align: center;
+    }
   }
 `;
 
